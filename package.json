@@ -1,0 +1,43 @@
+{
+  "name": "axedz",
+  "version": "2.0.0",
+  "description": "Production-grade Node.js SDK for the AxeDz CPaaS API (SMS, Email, Wallet)",
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "index.js",
+    "src/",
+    "types/"
+  ],
+  "keywords": [
+    "cpaas",
+    "sms",
+    "email",
+    "wallet",
+    "sdk",
+    "api",
+    "billing",
+    "axedz",
+    "communications"
+  ],
+  "author": "AxeDz Team",
+  "license": "MIT",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/axedz-sdk"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/axedz-sdk/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/axedz-sdk#readme",
+  "scripts": {
+    "test": "node test/smoke.js"
+  },
+  "dependencies": {
+    "axios": "^1.16.1"
+  }
+}
