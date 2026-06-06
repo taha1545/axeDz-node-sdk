@@ -1,6 +1,6 @@
 {
   "name": "axedz",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Production-grade Node.js SDK for the AxeDz CPaaS API (SMS, Email, Wallet)",
   "main": "index.js",
   "types": "types/index.d.ts",
@@ -17,6 +17,8 @@
     "sdk",
     "api",
     "billing",
+    "storage",
+    "model tookens",
     "axedz",
     "communications"
   ],
@@ -28,12 +30,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/axedz-sdk"
+    "url": "https://github.com/taha1545/axeDz-node-sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/axedz-sdk/issues"
+    "url": "https://github.com/taha1545/axeDz-node-sdk.git"
   },
-  "homepage": "https://github.com/YOUR_USERNAME/axedz-sdk#readme",
+  "homepage": "https://github.com/taha1545/axeDz-node-sdk.git",
   "scripts": {
     "test": "node test/smoke.js"
   },

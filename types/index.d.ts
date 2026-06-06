@@ -42,19 +42,24 @@ export class NetworkError extends AxeDzError {
 export class ServerError extends AxeDzError {}
 
 export interface SmsSendParams {
-  to: string;
+  to: string | string[];
   message: string;
+  senderName?: string;
   provider?: string;
   signal?: AbortSignal;
 }
 
 export interface EmailSendParams {
-  to: string;
+  to: string | string[];
   subject: string;
+  body?: string;
   html?: string;
   text?: string;
   message?: string;
   body_type?: 'text' | 'html';
+  senderName?: string;
+  callback_url?: string;
+  callbackData?: Record<string, unknown>;
   signal?: AbortSignal;
 }
 
