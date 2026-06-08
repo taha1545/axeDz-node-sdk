@@ -36,7 +36,7 @@ class SMS {
    * @param {AbortSignal} [params.signal] - Optional request cancellation signal.
    * @returns {Promise<{ success: true, data: Object, meta: Object }>}
    */
-  async send({ to, message, senderName, provider, signal } = {}) {
+  async send({ to, message, senderName, provider, callback_url, callbackData, callback_data, signal } = {}) {
     const toNumber = resolveRecipients(to);
     const body = assertNonEmptyString(message, 'Message');
 
@@ -55,6 +55,18 @@ class SMS {
 
     if (provider) {
       payload.provider = assertNonEmptyString(provider, 'Provider');
+    }
+
+    if (callback_url) {
+      payload.callback_url = assertNonEmptyString(callback_url, 'Callback URL');
+    }
+
+    const cbData = callbackData ?? callback_data;
+    if (cbData !== undefined) {
+      if (typeof cbData !== 'object' || cbData === null || Array.isArray(cbData)) {
+        throw new ValidationError('callback_data must be an object');
+      }
+      payload.callbackData = cbData;
     }
 
     return this.http.post('/communication/send-sms', payload, { signal });

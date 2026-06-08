@@ -1,6 +1,6 @@
 {
   "name": "axedz",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Production-grade Node.js SDK for the AxeDz CPaaS API (SMS, Email, Wallet)",
   "main": "index.js",
   "types": "types/index.d.ts",

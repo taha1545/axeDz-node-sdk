@@ -77,7 +77,7 @@ class Email {
    * @param {AbortSignal} [params.signal] - Optional request cancellation signal.
    * @returns {Promise<{ success: true, data: Object, meta: Object }>}
    */
-  async send({ to, subject, body, html, text, message, body_type, senderName, callback_url, callbackData, signal } = {}) {
+  async send({ to, subject, body, html, text, message, body_type, senderName, callback_url, callbackData, callback_data, signal } = {}) {
     const toEmail = resolveRecipients(to);
     const emailSubject = assertNonEmptyString(subject, 'Subject');
     const content = resolveContent({ body, html, text, message, body_type });
@@ -105,11 +105,12 @@ class Email {
       payload.callback_url = assertNonEmptyString(callback_url, 'Callback URL');
     }
 
-    if (callbackData !== undefined) {
-      if (typeof callbackData !== 'object' || callbackData === null || Array.isArray(callbackData)) {
-        throw new ValidationError('callbackData must be an object');
+    const cbData = callbackData ?? callback_data;
+    if (cbData !== undefined) {
+      if (typeof cbData !== 'object' || cbData === null || Array.isArray(cbData)) {
+        throw new ValidationError('callback_data must be an object');
       }
-      payload.callbackData = callbackData;
+      payload.callbackData = cbData;
     }
 
     return this.http.post('/communication/send-email', payload, { signal });
