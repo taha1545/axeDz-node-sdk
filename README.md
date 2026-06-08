@@ -49,3 +49,21 @@ await client.sms.send({
   senderName: 'MyProvider',
 });
 ```
+
+const res = await client.sms.send({
+    to: toList,
+    message,
+    provider: process.env.SMS_PROVIDER || 'axedz',
+    callback_url: process.env.SMS_CALLBACK_URL,
+    callbackData: process.env.SMS_CALLBACK_DATA ? JSON.parse(process.env.SMS_CALLBACK_DATA) : undefined,
+  });
+
+   const res = await client.email.send({
+    to: toList,
+    subject,
+    body,
+    body_type: 'html',
+    senderName: process.env.EMAIL_SENDER || 'AxeDz SDK Test',
+    callback_url: process.env.EMAIL_CALLBACK_URL,
+    callbackData: process.env.EMAIL_CALLBACK_DATA ? JSON.parse(process.env.EMAIL_CALLBACK_DATA) : undefined,
+  });
